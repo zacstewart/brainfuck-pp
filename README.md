@@ -1,6 +1,6 @@
 # brainfuck++
 
-A toy brainfuck interpretor written in C++. I wrote this as a learning exercise
+A toy brainfuck interpreter written in C++. I wrote this as a learning exercise
 to understand pointers. You can read about it [here][blog-post].
 
 ## To Build
