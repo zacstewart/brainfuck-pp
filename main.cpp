@@ -5,9 +5,10 @@ using namespace std;
 class Brainfuck {
   public:
     char data[30000];
-    char *d, *p;
+    char *d;
+    const char *p;
 
-    Brainfuck(char prog[]) {
+    Brainfuck(const char prog[]) {
       d = data;
       p = prog;
     }
