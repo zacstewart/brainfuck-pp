@@ -34,8 +34,7 @@ class Brainfuck {
     }
 
     void gets() {
-      char input;
-      std::cin >> input;
+      std::cin >> *d;
     }
 
     void bropen() {
