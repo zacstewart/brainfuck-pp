@@ -1,4 +1,6 @@
 #include <iostream>
+#include <fstream>
+#include <sys/stat.h>
 
 using namespace std;
 
@@ -91,6 +93,24 @@ class Brainfuck {
 };
 
 int main(int argc, const char* argv[]) {
-  Brainfuck interpreter = Brainfuck(argv[1]);
+  std::ifstream file;
+  int length;
+  char* buffer;
+  struct stat stats;
+
+  if( stat (argv[1], &stats) == 0 ) {
+    file.open(argv[1]);
+    file.seekg(0, std::ios::end);
+    length = file.tellg();
+    file.seekg(0, std::ios::beg);
+    buffer = new char[length];
+    file.read(buffer, length);
+    file.close();
+  }
+  else {
+    buffer = (char*) argv[1];
+  }
+  
+  Brainfuck interpreter = Brainfuck(buffer);
   interpreter.evaluate();
 }
